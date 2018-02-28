@@ -1,0 +1,25 @@
+{
+  "name": "linker",
+  "version": "0.1.0",
+  "description": "A link shortener",
+  "main": "app.js",
+  "scripts": {
+    "start": "node ./start.js",
+    "dev": "nodemon ./start.js --ignore public/",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/isakfagerlund/linker.git"
+  },
+  "author": "Isak Fagerlund",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/isakfagerlund/linker/issues"
+  },
+  "homepage": "https://github.com/isakfagerlund/linker#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "nodemon": "^1.17.1"
+  }
+}
