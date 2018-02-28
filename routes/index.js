@@ -1,16 +1,11 @@
 const express = require("express");
 const router = express.Router();
+const linkController = require("../controllers/linkController");
 
-router.get("/", function() {
-  // Server index.html
-});
+router.get("/v1/links", linkController.createLink);
 
-router.post("/v1/links", function(req, res) {
-  console.log("Create new short link");
-});
+router.post("/v1/links", linkController.createLink);
 
-router.get("/v1/:short-link-hash", function(req, res) {
-  console.log("Route is working");
-});
+router.get("/v1/:hash", linkController.getLink);
 
 module.exports = router;
