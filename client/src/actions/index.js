@@ -1,4 +1,4 @@
-import fetch from "cross-fetch";
+import axios from "axios";
 
 export const getNewLink = (url, hash) => {
   return {
@@ -10,17 +10,10 @@ export const getNewLink = (url, hash) => {
 
 export function getTheHash(url) {
   return function(dispatch) {
-    fetch("/v1/links", {
-      method: "POST",
-      body: JSON.stringify({ url }),
-      headers: new Headers({
-        "Content-Type": "application/json"
+    axios
+      .post("/v1/links", {
+        url
       })
-    })
-      .then(
-        res => res.json(),
-        error => console.log("An error occurred.", error)
-      )
-      .then(response => dispatch(getNewLink(url, response)));
+      .then(response => dispatch(getNewLink(url, response.data)));
   };
 }

@@ -1,11 +1,12 @@
+const mongoose = require("mongoose");
 const linkFunctions = require("../handlers/links");
+const Links = mongoose.model("Links");
+const Counter = mongoose.model("Counter");
 
 // Creating hash from url
 exports.createLink = (req, res) => {
   // Get link
-  // console.log(req.body.url);
-  // Save to datbase
-
+  console.log(req.body);
   res.json(linkFunctions.encode(10326));
 };
 
