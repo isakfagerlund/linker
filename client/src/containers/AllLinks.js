@@ -11,7 +11,10 @@ class AllLinks extends Component {
 
   render() {
     const { links } = this.props;
-    return <Links links={links} />;
+    const linksReversed = links.sort(function(a, b) {
+      return b._id - a._id;
+    });
+    return <Links links={linksReversed} />;
   }
 }
 

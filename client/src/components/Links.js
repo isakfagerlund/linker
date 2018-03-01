@@ -4,9 +4,9 @@ import "../styles/Links.css";
 
 const Links = props => (
   <div className="Links">
-    {props.links.map(link => (
+    {props.links.map((link, i) => (
       <Link
-        key={link._id}
+        key={i}
         long_url={link.long_url}
         hash={window.location.href + link.hash}
       />
