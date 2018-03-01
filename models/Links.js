@@ -1,10 +1,12 @@
 const mongoose = require("mongoose");
 const Counter = mongoose.model("Counter");
+const linkFunctions = require("../handlers/links");
 mongoose.Promise = global.Promise;
 
 const linksSchema = new mongoose.Schema({
   _id: { type: Number },
-  long_url: String
+  long_url: String,
+  hash: String
 });
 
 // The pre('save', callback) middleware executes the callback function
@@ -20,6 +22,7 @@ linksSchema.pre("save", function(next) {
       if (error) return next(error);
       // set the _id of the urls collection to the incremented value of the counter
       doc._id = model.seq;
+      doc.hash = linkFunctions.encode(doc._id);
       next();
     }
   );

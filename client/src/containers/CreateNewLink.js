@@ -1,16 +1,19 @@
 import React from "react";
 import { connect } from "react-redux";
-import { getTheHash } from "../actions";
+import { fetchTheHash } from "../actions";
 
 let CreateNewLink = ({ dispatch }) => {
   let input;
 
   return (
-    <div>
+    <div className="url-input">
       <form
         onSubmit={e => {
           e.preventDefault();
-          dispatch(getTheHash("https://google.com/"));
+          if (!input.value.trim()) {
+            return;
+          }
+          dispatch(fetchTheHash(input.value.toLowerCase()));
           input.value = "";
         }}
       >

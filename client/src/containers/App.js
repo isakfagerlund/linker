@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "../styles/App.css";
 import Header from "../components/Header";
 import CreateNewLink from "../containers/CreateNewLink";
+import AllLinks from "../containers/AllLinks";
 
 class App extends Component {
   constructor(props) {
@@ -17,8 +18,8 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <button onClick={this.redirect}>Redirect</button>
         <CreateNewLink />
+        <AllLinks />
       </div>
     );
   }

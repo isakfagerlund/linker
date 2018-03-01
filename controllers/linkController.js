@@ -9,34 +9,43 @@ exports.createLink = (req, res) => {
   var longUrl = req.body.url;
   var shortUrl = "";
   // check if url already exists in database
-  Links.findOne({ long_url: longUrl }, function(err, doc) {
-    if (doc) {
+  Links.findOne({ long_url: longUrl }, function(err, link) {
+    if (link) {
       // We found the url in the database so we just return the shortUrl directly
-      shortUrl = linkFunctions.encode(doc._id);
-      console.log(shortUrl);
+      shortUrl = linkFunctions.encode(link._id);
       res.json({ shortUrl });
     } else {
       // If the url is not in the database we create a new database post
       const newUrl = new Links({ long_url: longUrl });
-      console.log(newUrl);
 
       newUrl.save(function(err) {
         if (err) {
           console.log(err);
           return;
         }
-
         shortUrl = linkFunctions.encode(newUrl._id);
-        res.json({ shortUrl });
+        res.json({ shortUrl, _id: newUrl._id });
       });
     }
   });
-  // res.json(linkFunctions.encode(10326));
 };
 
 // Getting the save url from hash link
 exports.getLink = (req, res) => {
   const hash = req.params.hash;
-  res.json(linkFunctions.decode(hash));
-  // res.json(link);
+  const decodedHash = linkFunctions.decode(hash);
+
+  Links.findOne({ _id: decodedHash }, function(err, link) {
+    if (link) {
+      res.json(link.long_url);
+    } else {
+      res.status(404).send("Oh uh, this seems to be a non working link");
+    }
+  });
+};
+
+exports.getAllLinks = (req, res) => {
+  Links.find({}, function(err, links) {
+    res.json(links);
+  });
 };

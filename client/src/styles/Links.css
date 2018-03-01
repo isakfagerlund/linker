@@ -1,0 +1,12 @@
+.Links {
+  max-width: 600px;
+  margin: 0 auto;
+  margin-top: 25px;
+}
+
+.Link {
+  padding: 25px;
+  border: 2px solid #b1b1b1;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
