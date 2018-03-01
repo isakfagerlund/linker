@@ -10,7 +10,7 @@ let CreateNewLink = ({ dispatch }) => {
       <form
         onSubmit={e => {
           e.preventDefault();
-          dispatch(getTheHash("https://iskall.io/"));
+          dispatch(getTheHash("https://google.com/"));
           input.value = "";
         }}
       >

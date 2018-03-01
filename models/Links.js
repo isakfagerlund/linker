@@ -10,13 +10,17 @@ const linksSchema = new mongoose.Schema({
 // The pre('save', callback) middleware executes the callback function
 // every time before an entry is saved to the urls collection.
 linksSchema.pre("save", function(next) {
+  var doc = this;
   // find the url_count and increment it by 1
   Counter.findByIdAndUpdate(
     { _id: "url_count" },
-    { $inc: { counterNumber: 1 } },
+    { $inc: { seq: 1 } },
     { new: true },
     function(error, model) {
-      this._id = Counter.counterNumber;
+      if (error) return next(error);
+      // set the _id of the urls collection to the incremented value of the counter
+      doc._id = model.seq;
+      next();
     }
   );
 });
