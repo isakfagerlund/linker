@@ -4,7 +4,8 @@ const links = (state = [], action) => {
       return [
         ...state,
         {
-          url: action.url
+          url: action.url,
+          hash: action.hash
         }
       ];
     default:

@@ -3,8 +3,10 @@ const linkFunctions = require("../handlers/links");
 // Creating hash from url
 exports.createLink = (req, res) => {
   // Get link
-  // res.json(hash);
-  res.json(linkFunctions.encode(10054));
+  // console.log(req.body.url);
+  // Save to datbase
+
+  res.json(linkFunctions.encode(10326));
 };
 
 // Getting the save url from hash link

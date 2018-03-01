@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { getNewLink } from "../actions";
+import { getTheHash } from "../actions";
 
 let CreateNewLink = ({ dispatch }) => {
   let input;
@@ -10,7 +10,7 @@ let CreateNewLink = ({ dispatch }) => {
       <form
         onSubmit={e => {
           e.preventDefault();
-          dispatch(getNewLink("https://iskall.io/"));
+          dispatch(getTheHash("https://iskall.io/"));
           input.value = "";
         }}
       >
