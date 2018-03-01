@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import "./App.css";
+import "../styles/App.css";
+import Header from "../components/Header"
+import CreateNewLink from '../containers/CreateNewLink'
 
 class App extends Component {
   constructor(props) {
@@ -14,8 +16,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Linker</h1>
+        <Header />
         <button onClick={this.redirect}>Redirect</button>
+        <CreateNewLink />
       </div>
     );
   }
