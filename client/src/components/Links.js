@@ -1,9 +1,9 @@
-import React from 'react'
+import React from "react";
 
 const Links = () => (
-  <div className="Links" >
+  <div className="Links">
     <p>Loop links here</p>
   </div>
-)
+);
 
-export default Links
+export default Links;

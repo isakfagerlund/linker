@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "../styles/App.css";
-import Header from "../components/Header"
-import CreateNewLink from '../containers/CreateNewLink'
+import Header from "../components/Header";
+import CreateNewLink from "../containers/CreateNewLink";
 
 class App extends Component {
   constructor(props) {
