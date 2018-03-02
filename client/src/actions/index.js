@@ -22,9 +22,13 @@ export function fetchTheHash(url) {
       .post("/v1/links", {
         url
       })
-      .then(response =>
-        dispatch(getNewLink(url, response.data.shortUrl, response.data._id))
-      );
+      .then(function(response) {
+        if (response.data.error) {
+          alert(`Link for ${url} already exixts! Check the list`);
+        } else {
+          dispatch(getNewLink(url, response.data.shortUrl, response.data._id));
+        }
+      });
   };
 }
 

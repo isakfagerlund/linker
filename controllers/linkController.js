@@ -13,7 +13,8 @@ exports.createLink = (req, res) => {
     if (link) {
       // We found the url in the database so we just return the shortUrl directly
       shortUrl = linkFunctions.encode(link._id);
-      res.json({ shortUrl });
+      // res.json({ shortUrl });
+      res.json({ error: "User already exists", shortUrl });
     } else {
       // If the url is not in the database we create a new database post
       const newUrl = new Links({ long_url: longUrl });
