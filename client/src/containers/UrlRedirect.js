@@ -11,19 +11,19 @@ class UrlRedirect extends Component {
       } else {
         console.log(response.data);
         if (
-          response.data.includes("http://") ||
-          response.data.includes("https://")
+          response.data.startsWith("http://") ||
+          response.data.startsWith("https://")
         ) {
-          window.location.replace(response.data);
+          document.location.replace(response.data);
         } else {
-          window.location.replace("http://" + response.data);
+          document.location.replace("http://" + response.data);
         }
       }
     });
   }
 
   render() {
-    return <p>Redirecting...</p>;
+    return <p>Connecting & Redirecting...</p>;
   }
 }
 

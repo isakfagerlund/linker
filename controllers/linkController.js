@@ -35,7 +35,6 @@ exports.createLink = (req, res) => {
 exports.getLink = (req, res) => {
   const hash = req.params.hash;
   const decodedHash = linkFunctions.decode(hash);
-  console.log(decodedHash);
 
   Links.findOne({ _id: decodedHash }, function(err, link) {
     if (link) {
