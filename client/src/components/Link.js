@@ -2,12 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Links = props => (
-  <div className="Link">
-    <p>
-      <Link to={props.hash}> {props.hash} </Link>
-      - {props.long_url}
-    </p>
-  </div>
+  <Link to={props.hash}>
+    <div className="Link">
+      <p>{props.hash}</p>
+      <span>{props.long_url}</span>
+    </div>
+  </Link>
 );
 
 export default Links;

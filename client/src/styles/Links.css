@@ -4,9 +4,54 @@
   margin-top: 25px;
 }
 
+.Links a {
+  display: block;
+  text-decoration: none;
+}
+
 .Link {
-  padding: 25px;
-  border: 2px solid #b1b1b1;
+  padding: 15px 30px;
   border-radius: 4px;
   margin-bottom: 10px;
+  border: solid 1px #dce0e0;
+  transition: all 0.2s;
+  text-align: left;
+}
+
+.Link:hover {
+  border: solid 1px #308cea;
+}
+
+.Link p {
+  margin: 0;
+  margin-bottom: 10px;
+  font-weight: 400;
+  color: #308cea;
+}
+
+.Link span {
+  color: rgba(0, 0, 0, 0.378);
+  font-weight: 300;
+  display: block;
+  word-wrap: break-word;
+}
+
+/* Animations */
+
+.fade-enter {
+  opacity: 0.01;
+  transition: all 0.5s;
+}
+
+.fade-enter.fade-enter-active {
+  opacity: 1;
+}
+
+.fade-exit {
+  opacity: 1;
+  transition: all 0.5s;
+}
+
+.fade-exit.fade-exit-active {
+  opacity: 0.01;
 }

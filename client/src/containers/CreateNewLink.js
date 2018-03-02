@@ -18,11 +18,12 @@ let CreateNewLink = ({ dispatch }) => {
         }}
       >
         <input
+          placeholder="Place url here"
           ref={node => {
             input = node;
           }}
         />
-        <button type="submit">Get new link</button>
+        <button type="submit">Create short link</button>
       </form>
     </div>
   );
