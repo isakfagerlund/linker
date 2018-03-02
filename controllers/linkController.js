@@ -54,7 +54,6 @@ exports.getAllLinks = (req, res) => {
 exports.deleteLink = (req, res) => {
   const hash = req.params.hash;
   const decodedHash = linkFunctions.decode(hash);
-  console.log(decodedHash);
 
   Links.findByIdAndRemove({ _id: decodedHash }, function(err, link) {
     if (link) {
@@ -63,4 +62,26 @@ exports.deleteLink = (req, res) => {
       res.json({ error: "This link does not exist" });
     }
   });
+};
+
+exports.updateLink = (req, res) => {
+  const hash = req.params.hash;
+  const decodedHash = linkFunctions.decode(hash);
+
+  const updates = {
+    long_url: req.body.url
+  };
+
+  Links.findByIdAndUpdate(
+    { _id: decodedHash },
+    { $set: updates },
+    { new: true, runValidators: true, context: "query" },
+    function(err, link) {
+      if (link) {
+        res.json({ _id: decodedHash, url: updates.long_url });
+      } else {
+        res.json({ error: "This link does not exist" });
+      }
+    }
+  );
 };

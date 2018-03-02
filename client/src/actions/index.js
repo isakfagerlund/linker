@@ -23,6 +23,14 @@ export const deleteLink = id => {
   };
 };
 
+export const updateLink = (id, url) => {
+  return {
+    type: "UPDATE_LINK",
+    id,
+    url
+  };
+};
+
 export function fetchTheHash(url) {
   return function(dispatch) {
     axios
@@ -39,13 +47,26 @@ export function fetchTheHash(url) {
   };
 }
 
-export function fetchLinkAndDelete(url) {
+export function fetchLinkAndDelete(hash) {
   return function(dispatch) {
-    axios.delete(`/v1/${url}`).then(function(response) {
+    axios.delete(`/v1/${hash}`).then(function(response) {
       if (response.data.error) {
         alert(response.data.error);
       } else {
         dispatch(deleteLink(response.data._id));
+      }
+    });
+  };
+}
+
+export function fetchLinkAndUpdate(hash, url) {
+  return function(dispatch) {
+    axios.put(`/v1/${hash}`, { url }).then(function(response) {
+      if (response.data.error) {
+        alert(response.data.error);
+      } else {
+        console.log("updated");
+        dispatch(updateLink(response.data._id, url));
       }
     });
   };

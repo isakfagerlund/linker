@@ -10,4 +10,6 @@ router.get("/v1/:hash", linkController.getLink);
 
 router.delete("/v1/:hash", linkController.deleteLink);
 
+router.put("/v1/:hash", linkController.updateLink);
+
 module.exports = router;

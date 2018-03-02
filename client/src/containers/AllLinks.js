@@ -1,12 +1,17 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Links from "../components/Links";
-import { fetchAllLinks, fetchLinkAndDelete } from "../actions";
+import {
+  fetchAllLinks,
+  fetchLinkAndDelete,
+  fetchLinkAndUpdate
+} from "../actions";
 
 class AllLinks extends Component {
   constructor(props) {
     super(props);
     this.deleteLink = this.deleteLink.bind(this);
+    this.updateLink = this.updateLink.bind(this);
   }
 
   componentDidMount() {
@@ -14,11 +19,14 @@ class AllLinks extends Component {
     dispatch(fetchAllLinks());
   }
 
-  deleteLink(url) {
+  deleteLink(hash) {
     const { dispatch } = this.props;
-    console.log("deleteLink");
-    console.log(url);
-    dispatch(fetchLinkAndDelete(url));
+    dispatch(fetchLinkAndDelete(hash));
+  }
+
+  updateLink(hash, url) {
+    const { dispatch } = this.props;
+    dispatch(fetchLinkAndUpdate(hash, url));
   }
 
   render() {
@@ -26,7 +34,13 @@ class AllLinks extends Component {
     const linksReversed = links.sort(function(a, b) {
       return b._id - a._id;
     });
-    return <Links links={linksReversed} deleteLink={this.deleteLink} />;
+    return (
+      <Links
+        links={linksReversed}
+        deleteLink={this.deleteLink}
+        updateLink={this.updateLink}
+      />
+    );
   }
 }
 

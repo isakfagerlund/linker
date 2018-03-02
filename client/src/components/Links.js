@@ -16,6 +16,7 @@ const Links = props => (
           short_url={window.location.href + link.hash}
           hash={link.hash}
           deleteLink={props.deleteLink}
+          updateLink={props.updateLink}
           id={link._id}
         />
       </CSSTransition>
