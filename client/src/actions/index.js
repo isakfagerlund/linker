@@ -16,6 +16,13 @@ export const getNewLink = (url, hash, id) => {
   };
 };
 
+export const deleteLink = id => {
+  return {
+    type: "DELETE_LINK",
+    id
+  };
+};
+
 export function fetchTheHash(url) {
   return function(dispatch) {
     axios
@@ -29,6 +36,18 @@ export function fetchTheHash(url) {
           dispatch(getNewLink(url, response.data.shortUrl, response.data._id));
         }
       });
+  };
+}
+
+export function fetchLinkAndDelete(url) {
+  return function(dispatch) {
+    axios.delete(`/v1/${url}`).then(function(response) {
+      if (response.data.error) {
+        alert(response.data.error);
+      } else {
+        dispatch(deleteLink(response.data._id));
+      }
+    });
   };
 }
 

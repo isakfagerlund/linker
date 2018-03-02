@@ -11,6 +11,10 @@ const links = (state = [], action) => {
           hash: action.hash
         }
       ];
+    case "DELETE_LINK":
+      console.log(`Deleted ${action.id}`);
+      const newState = state;
+      return newState.filter(link => link._id !== action.id);
     default:
       return state;
   }

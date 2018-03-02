@@ -54,10 +54,11 @@ exports.getAllLinks = (req, res) => {
 exports.deleteLink = (req, res) => {
   const hash = req.params.hash;
   const decodedHash = linkFunctions.decode(hash);
+  console.log(decodedHash);
 
-  Links.remove({ _id: decodedHash }, function(err, link) {
+  Links.findByIdAndRemove({ _id: decodedHash }, function(err, link) {
     if (link) {
-      res.json(decodedHash);
+      res.json({ _id: decodedHash });
     } else {
       res.json({ error: "This link does not exist" });
     }

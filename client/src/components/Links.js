@@ -1,5 +1,5 @@
 import React from "react";
-import Link from "./Link";
+import TheLink from "./Link";
 import "../styles/Links.css";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
@@ -11,9 +11,12 @@ const Links = props => (
         key={i}
         timeout={{ enter: 300, exit: 300 }}
       >
-        <Link
+        <TheLink
           long_url={link.long_url}
-          hash={window.location.href + link.hash}
+          short_url={window.location.href + link.hash}
+          hash={link.hash}
+          deleteLink={props.deleteLink}
+          id={link._id}
         />
       </CSSTransition>
     ))}
