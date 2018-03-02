@@ -3,7 +3,9 @@ import "../styles/Header.css";
 
 const Header = () => (
   <div className="header">
-    <h2>Linker</h2>
+    <a href="/">
+      <h2>Linker</h2>
+    </a>
   </div>
 );
 

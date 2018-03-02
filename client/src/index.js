@@ -2,7 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import thunkMiddleware from "redux-thunk";
 import "./styles/index.css";
-import App from "./containers/App";
+import Header from "./components/Header";
+import Router from "./containers/Router";
 import linkerApp from "./reducers";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware, compose } from "redux";
@@ -19,7 +20,10 @@ const store = createStore(
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <React.Fragment>
+      <Header />
+      <Router />
+    </React.Fragment>
   </Provider>,
   document.getElementById("root")
 );
