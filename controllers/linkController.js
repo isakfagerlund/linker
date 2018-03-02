@@ -50,3 +50,16 @@ exports.getAllLinks = (req, res) => {
     res.json(links);
   });
 };
+
+exports.deleteLink = (req, res) => {
+  const hash = req.params.hash;
+  const decodedHash = linkFunctions.decode(hash);
+
+  Links.remove({ _id: decodedHash }, function(err, link) {
+    if (link) {
+      res.json(decodedHash);
+    } else {
+      res.json({ error: "This link does not exist" });
+    }
+  });
+};

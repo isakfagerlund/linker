@@ -8,4 +8,6 @@ router.post("/v1/links", linkController.createLink);
 
 router.get("/v1/:hash", linkController.getLink);
 
+router.delete("/v1/:hash", linkController.deleteLink);
+
 module.exports = router;
