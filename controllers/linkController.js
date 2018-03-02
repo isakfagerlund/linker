@@ -35,12 +35,13 @@ exports.createLink = (req, res) => {
 exports.getLink = (req, res) => {
   const hash = req.params.hash;
   const decodedHash = linkFunctions.decode(hash);
+  console.log(decodedHash);
 
   Links.findOne({ _id: decodedHash }, function(err, link) {
     if (link) {
       res.json(link.long_url);
     } else {
-      res.status(404).send("Oh uh, this seems to be a non working link");
+      res.json({ error: "This hash is not created" });
     }
   });
 };
