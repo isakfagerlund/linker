@@ -1,5 +1,6 @@
 import React from "react";
 import TheLink from "./Link";
+import PropTypes from "prop-types";
 import "../styles/Links.css";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
@@ -23,5 +24,11 @@ const Links = props => (
     ))}
   </TransitionGroup>
 );
+
+Links.propTypes = {
+  links: PropTypes.array.isRequired,
+  deleteLink: PropTypes.func.isRequired,
+  updateLink: PropTypes.func.isRequired
+};
 
 export default Links;

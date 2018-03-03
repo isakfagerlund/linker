@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import Links from "../components/Links";
 import {
@@ -58,5 +59,9 @@ function mapStateToProps(state) {
     links
   };
 }
+
+AllLinks.propTypes = {
+  links: PropTypes.array.isRequired
+};
 
 export default connect(mapStateToProps)(AllLinks);

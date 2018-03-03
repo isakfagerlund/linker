@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 const TheLink = props => (
@@ -19,5 +20,14 @@ const TheLink = props => (
     </div>
   </div>
 );
+
+TheLink.propTypes = {
+  long_url: PropTypes.string.isRequired,
+  short_url: PropTypes.string.isRequired,
+  hash: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
+  updateLink: PropTypes.func.isRequired,
+  deleteLink: PropTypes.func.isRequired
+};
 
 export default TheLink;
