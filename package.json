@@ -7,8 +7,7 @@
     "start": "npm run dev",
     "client": "cd client && npm start",
     "server": "nodemon --ignore client/ start.js",
-    "dev":
-      "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
+    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
     "test": "jest __tests__/*.test.js",
     "client-test": "cd client && npm run test",
     "postinstall": "cd client && npm install"

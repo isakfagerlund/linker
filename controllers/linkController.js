@@ -14,7 +14,7 @@ exports.createLink = (req, res) => {
       // We found the url in the database so we just return the shortUrl directly
       shortUrl = linkFunctions.encode(link._id);
       // res.json({ shortUrl });
-      res.status(500).json({ error: "User already exists", shortUrl });
+      res.json({ error: "User already exists", shortUrl });
     } else {
       // If the url is not in the database we create a new database post
       const newUrl = new Links({ long_url: longUrl });
@@ -22,7 +22,7 @@ exports.createLink = (req, res) => {
       newUrl.save(function(err) {
         if (err) {
           console.log(err);
-          res.status(500).json({ error: err });
+          res.json({ error: err });
           return;
         }
         shortUrl = linkFunctions.encode(newUrl._id);
@@ -41,18 +41,14 @@ exports.getLink = (req, res) => {
     if (link) {
       res.json(link.long_url);
     } else {
-      res.status(500).json({ error: "This hash is not created" });
+      res.json({ error: "This hash is not created" });
     }
   });
 };
 
 exports.getAllLinks = (req, res) => {
   Links.find({}, function(err, links) {
-    if (links) {
-      res.status(200).json(links);
-    } else {
-      res.status(500);
-    }
+      res.json(links);
   });
 };
 
@@ -64,7 +60,7 @@ exports.deleteLink = (req, res) => {
     if (link) {
       res.json({ _id: decodedHash });
     } else {
-      res.status(500).json({ error: "This link does not exist" });
+      res.json({ error: "This link does not exist" });
     }
   });
 };
@@ -85,7 +81,7 @@ exports.updateLink = (req, res) => {
       if (link) {
         res.json({ _id: decodedHash, url: updates.long_url });
       } else {
-        res.status(500).json({ error: "This link does not exist" });
+        res.json({ error: "This link does not exist" });
       }
     }
   );

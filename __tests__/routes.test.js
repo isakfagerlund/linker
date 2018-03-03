@@ -14,20 +14,18 @@ describe("index route", () => {
     done();
   });
 
-  test("should respond with a 500 link does not exist", () => {
+  test("should respond with a error link does not exist", () => {
     return request(app)
       .delete("/v1/zöcppak2")
-      .expect(500)
       .then(response => {
         expect(response.error);
       });
     done();
   });
 
-  test("should respond with a 500 link does not exist", () => {
+  test("should respond with a error link does not exist", () => {
     return request(app)
       .put("/v1/zöcppak2")
-      .expect(500)
       .then(response => {
         expect(response.error);
       });
