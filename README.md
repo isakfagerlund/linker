@@ -20,12 +20,12 @@ What you need
 
 **Run tests**
 
-Server: `npm run test`
-Client: `npm run client-test`
+`npm run test`
 
 **Features that should be fixed or added in the future**
 
 * Backend validation of links
+* Add client-tests
 * Automatic copying of created urls
 * Better error handling
 * Pagination
