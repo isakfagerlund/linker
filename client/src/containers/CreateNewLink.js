@@ -18,7 +18,7 @@ let CreateNewLink = ({ dispatch }) => {
         }}
       >
         <input
-          placeholder="Place url here"
+          placeholder="Paste url here"
           ref={node => {
             input = node;
           }}

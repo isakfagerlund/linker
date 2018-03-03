@@ -14,7 +14,7 @@ class AllLinks extends Component {
     this.updateLink = this.updateLink.bind(this);
   }
 
-  componentDidMount() {
+  componentWillMount() {
     const { dispatch } = this.props;
     dispatch(fetchAllLinks());
   }
@@ -24,9 +24,13 @@ class AllLinks extends Component {
     dispatch(fetchLinkAndDelete(hash));
   }
 
-  updateLink(hash, url) {
+  updateLink(hash) {
     const { dispatch } = this.props;
-    dispatch(fetchLinkAndUpdate(hash, url));
+
+    const url = prompt("Please enter the new Url", "");
+    if (url != null) {
+      dispatch(fetchLinkAndUpdate(hash, url));
+    }
   }
 
   render() {
