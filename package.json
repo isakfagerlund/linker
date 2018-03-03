@@ -7,8 +7,9 @@
     "start": "npm run dev",
     "client": "cd client && npm start",
     "server": "nodemon --ignore client/ start.js",
-    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev":
+      "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
+    "test": "jest __tests__/*.test.js",
     "client-test": "cd client && npm run test",
     "postinstall": "cd client && npm install"
   },
@@ -30,10 +31,12 @@
     "concurrently": "^3.5.0",
     "dotenv": "^5.0.1",
     "express": "^4.16.2",
+    "jest": "^22.4.2",
     "mongoose": "^5.0.7",
     "nodemon": "^1.17.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "supertest": "^3.0.0",
     "webpack": "^4.0.1",
     "webpack-cli": "^2.0.9",
     "webpack-dev-server": "^3.1.0"
