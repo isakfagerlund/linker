@@ -6,6 +6,7 @@
 
 .Links a {
   display: block;
+  width: 100%;
   text-decoration: none;
 }
 
@@ -16,6 +17,42 @@
   border: solid 1px #dce0e0;
   transition: all 0.2s;
   text-align: left;
+}
+
+.Link-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.Link-buttons {
+  margin-bottom: 10px;
+}
+
+.Link-buttons button {
+  background: none;
+  border: 0;
+  width: 50%;
+  height: 50%;
+  cursor: pointer;
+}
+
+.Link-buttons button:focus {
+  outline: none;
+}
+
+.Link-buttons svg {
+  width: 100%;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+
+.Link-buttons button:hover svg {
+  opacity: 1;
+}
+
+.Link-buttons button:nth-child(2) svg {
+  color: #ff4646;
 }
 
 .Link:hover {
@@ -54,4 +91,18 @@
 
 .fade-exit.fade-exit-active {
   opacity: 0.01;
+}
+
+@media (min-width: 768px) {
+  .Link-wrapper {
+    flex-direction: row;
+  }
+
+  .Link-buttons {
+    padding-left: 20px;
+  }
+
+  .Link-buttons button {
+    width: 100%;
+  }
 }

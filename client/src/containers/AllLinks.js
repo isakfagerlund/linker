@@ -21,7 +21,11 @@ class AllLinks extends Component {
 
   deleteLink(hash) {
     const { dispatch } = this.props;
-    dispatch(fetchLinkAndDelete(hash));
+
+    const check = window.confirm("Are you sure you want to delete this link?");
+    if (check) {
+      dispatch(fetchLinkAndDelete(hash));
+    }
   }
 
   updateLink(hash) {
