@@ -8,7 +8,7 @@ What you need
 
 * Node.js
 * NPM
-* Mongodb connection url
+* `variables.env` file with Mongodb connection url
 
 **Installing the application and all the packages**
 
@@ -27,5 +27,6 @@ Client: `npm run client-test`
 
 * Backend validation of links
 * Automatic copying of created urls
+* Better error handling
 * Pagination
 * Better tests
