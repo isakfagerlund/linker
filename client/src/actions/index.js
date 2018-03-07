@@ -65,7 +65,6 @@ export function fetchLinkAndUpdate(hash, url) {
       if (response.data.error) {
         alert(response.data.error);
       } else {
-        console.log("updated");
         dispatch(updateLink(response.data._id, url));
       }
     });

@@ -10,9 +10,11 @@ let CreateNewLink = ({ dispatch }) => {
       <form
         onSubmit={e => {
           e.preventDefault();
+          // Check if there is anything in input
           if (!input.value.trim()) {
             return;
           }
+          // If there is dispatch and create the hash + make the input lowercase for easy handling
           dispatch(fetchTheHash(input.value.toLowerCase()));
           input.value = "";
         }}

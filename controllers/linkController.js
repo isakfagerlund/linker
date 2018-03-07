@@ -48,7 +48,7 @@ exports.getLink = (req, res) => {
 
 exports.getAllLinks = (req, res) => {
   Links.find({}, function(err, links) {
-      res.json(links);
+    res.json(links);
   });
 };
 

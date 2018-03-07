@@ -10,6 +10,7 @@ class UrlRedirect extends Component {
         this.props.history.push("/404");
       } else {
         console.log(response.data);
+        // Check if url has http or https to make the url work with replace
         if (
           response.data.startsWith("http://") ||
           response.data.startsWith("https://")

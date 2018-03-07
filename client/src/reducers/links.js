@@ -12,18 +12,20 @@ const links = (state = [], action) => {
         }
       ];
     case "DELETE_LINK":
-      // console.log(`Deleted ${action.id}`);
       const newState = state;
+      // Return as long as link id is not the same as action id
       return newState.filter(link => link._id !== action.id);
     case "UPDATE_LINK":
-      // console.log(`Update ${action.id} with ${action.url}`);
       const updatedState = state.map(link => {
         if (link._id === action.id) {
+          // If link id = action id change to the updated values
           link.long_url = action.url;
           return link;
         }
+        // Else just return the original object
         return link;
       });
+      // Then return the updated state
       return updatedState;
     default:
       return state;
