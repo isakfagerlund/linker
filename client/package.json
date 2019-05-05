@@ -15,13 +15,17 @@
     "react-scripts": "1.1.1",
     "react-transition-group": "^2.2.1",
     "redux": "^3.7.2",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "snyk": "^1.161.1"
   },
   "scripts": {
     "start": "PORT=8889 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
-  "proxy": "http://localhost:8888/"
+  "proxy": "http://localhost:8888/",
+  "snyk": true
 }
