@@ -10,7 +10,9 @@
     "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
     "test": "jest __tests__/*.test.js",
     "client-test": "cd client && npm run test",
-    "postinstall": "cd client && npm install"
+    "postinstall": "cd client && npm install",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -38,6 +40,8 @@
     "supertest": "^3.0.0",
     "webpack": "^4.0.1",
     "webpack-cli": "^2.0.9",
-    "webpack-dev-server": "^3.1.0"
-  }
+    "webpack-dev-server": "^3.1.0",
+    "snyk": "^1.316.1"
+  },
+  "snyk": true
 }
